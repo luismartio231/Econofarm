@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Models\category;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\ProductController;
+use Symfony\Component\Routing\Route as ComponentRoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+
+Route::get('prueba', function () {
+
+    \Cart::destroy();
+
 });
