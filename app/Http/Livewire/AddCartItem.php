@@ -14,6 +14,9 @@ class AddCartItem extends Component
 
     public $options = [];
 
+
+
+
     public function mount()
     {
         $this->quantity = $this->product->quantity;
@@ -21,17 +24,32 @@ class AddCartItem extends Component
         $this->options['image'] = Storage::url($this->product->images->first()->url);
     }
 
+
+
+
+
+
+
     public function decrement()
     {
 
         $this->qty = $this->qty - 1;
     }
 
+
+
+
+
+
     public function increment()
     {
 
         $this->qty = $this->qty + 1;
     }
+
+
+
+
 
     public function addItem()
     {
@@ -42,9 +60,17 @@ class AddCartItem extends Component
             'price' => $this->product->price,
             'options' => $this->options
         ]);
+        // $this->quantity = $this->qty_available($this->product->id);
+
+        // $this->reset('qty');
 
         $this->emitTo('dropdown-cart', 'render');
     }
+
+
+
+
+
 
     public function render()
     {

@@ -15,7 +15,7 @@ function qty_added($product_id){
 
 $cart = Cart::content();
 
-$item = $cart->where('id', $product_id);
+$item = $cart->where('id', $product_id)->first();
 
 
 if($item){
@@ -31,9 +31,13 @@ else{
 }
 
 
+
+
 function qty_available($product_id){
 
-    return quantity($product_id) . - qty_added($product_id);
+    return  quantity($product_id) - qty_added($product_id);
+    
+
 
 
 }
