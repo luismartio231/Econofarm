@@ -1,5 +1,5 @@
-<div class = "flex-1 relative">
-    
+{{-- <div class = "flex-1 relative">
+
 
 
    <x-jet-input wire:model="search" tiye="text" class="w-full h-10 text-center" placeholder="¿Que estas buscando?" />
@@ -9,7 +9,7 @@
 </button>
 
 
-<div class="absolute w-full"> 
+<div class="absolute w-full">
 
 <div class="bg-white rounded-lg shadow mt-1">
 
@@ -23,4 +23,4 @@
 
 
 
-</div>
+</div> --}}
