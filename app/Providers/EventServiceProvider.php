@@ -21,7 +21,7 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-
+// hola
         Login::class => [
             "App\Listeners\MergeTheCart"
         ],
