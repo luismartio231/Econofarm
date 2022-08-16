@@ -7,9 +7,9 @@ function quantity($product_id){
 
     $product = Products::find($product_id);
 
-$quantity = $product->quantity;
+    $quantity = $product->quantity;
 
-return $quantity;
+    return $quantity;
 
 }
 
