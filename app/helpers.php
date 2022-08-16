@@ -7,6 +7,9 @@ function quantity($product_id){
 
     $product = Products::find($product_id);
 
+     $quantity = $product->quantity;
+
+     return $quantity;
 
 }
 
@@ -36,8 +39,11 @@ else{
 function qty_available($product_id){
 
     return  quantity($product_id) - qty_added($product_id);
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> carrito
 
 
 }

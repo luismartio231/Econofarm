@@ -19,7 +19,7 @@ class AddCartItem extends Component
 
     public function mount()
     {
-        $this->quantity = $this->product->quantity;
+        $this->quantity = qty_available($this->product->id);
 
         $this->options['image'] = Storage::url($this->product->images->first()->url);
     }
@@ -60,10 +60,15 @@ class AddCartItem extends Component
             'price' => $this->product->price,
             'weight' => 550,
             'options' => $this->options
+
         ]);
         // $this->quantity = $this->qty_available($this->product->id);
 
         // $this->reset('qty');
+
+        $this->quantity = qty_available($this->product->id);
+
+       $this->reset('qty');
 
         $this->emitTo('dropdown-cart', 'render');
     }
