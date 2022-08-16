@@ -55,7 +55,7 @@
                         {{ Cart::subtotal() }}</p>
 
 
-                    <x-button-enlace color="blue" class="w-full">
+                    <x-button-enlace href="{{ route('shoping-cart') }}" color="blue" class="w-full">
                         ir al carrito de compras
                     </x-button-enlace>
 
