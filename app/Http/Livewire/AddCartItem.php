@@ -6,6 +6,7 @@ use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Storage;
 
+
 class AddCartItem extends Component
 {
 

@@ -9,12 +9,17 @@ class UpdateCartItem extends Component
 {
     public $rowId, $qty, $quantity;
 
+
+
+
     public function mount(){
         $item = Cart::get($this->rowId);
         $this->qty = $item->qty;
 
         $this->quantity = qty_available($item->id);
     }
+
+
 
     public function decrement()
     {
@@ -26,6 +31,8 @@ class UpdateCartItem extends Component
         $this->emit('render');
     }
 
+
+
     public function increment()
     {
 
@@ -35,6 +42,8 @@ class UpdateCartItem extends Component
 
         $this->emit('render');
     }
+
+
 
     public function render()
     {

@@ -6,7 +6,7 @@
             wire:target="decrement"
             wire:click="decrement">
             -
-        </x-jet-secondary-buttonm>
+        </x-jet-secondary-button>
         <span class="mx-2 text-gray-700">
             {{ $qty }}
         </span>
@@ -16,5 +16,5 @@
             wire:target="increment"
             wire:click="increment">
             +
-        </x-jet-secondary-buttonm>
+        </x-jet-secondary-button>
 </div>
