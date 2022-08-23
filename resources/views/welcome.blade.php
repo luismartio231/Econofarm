@@ -1,5 +1,62 @@
 <x-app-layout>
 
+<style>
+    .contenedor{
+
+width: 800px;
+margin: auto;
+overflow: hidden;
+}
+
+.contenedor ul{
+display: flex;
+padding: 0;
+width: 1500px;
+animation: cambio 20s infinite;
+}
+
+.contenedor ul li{
+width: 100%;
+list-style: none;
+
+}
+
+.contenedor img{
+
+width: 100%;
+border-radius: 10px;
+margin-top: 5px;
+}
+
+@keyframes cambio{
+
+0% {margin-left: 0;}
+20% {margin-left: 0;}
+
+25% {margin-left: -100%;}
+45% {margin-left: -100%;}
+
+50% {margin-left: -200%;}
+70% {margin-left: -200%;}
+
+
+
+
+}
+</style>
+
+<div class="contenedor">
+
+    <ul>
+
+   <li id="slider1"><img src="{{ asset('img/busca.jpg')}}" alt=""></li>
+   <li id="slider2"><img src="{{ asset('img/busca.jpg')}}" alt=""></li>
+   <li id="slider3"><img src="{{ asset('img/busca.jpg')}}" alt=""></li>
+
+
+    </ul>
+   </div>
+
     <div class="container py-8">
         @foreach ($categories as $category)
             <section class="mb-15">
@@ -18,6 +75,9 @@
 
     @push('script')
         <script>
+
+
+
             Livewire.on('glider', function(id) {
                 new Glider(document.querySelector('.glider-' + id), {
                     slidesToScroll: 1,
