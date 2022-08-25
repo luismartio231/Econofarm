@@ -2,7 +2,11 @@
 
     <h1 class="text-3xl text-center font-semibold mb-8">Complete esta información para crear un producto</h1>
 
+<div class="bg-white shadow-xl rounded-lg p-6">
+
     <div class="grid grid-cols-2 gap-6 mb-4">
+
+
 
         {{-- Categoría --}}
         <div>
@@ -21,7 +25,7 @@
         {{-- Subcategoría --}}
         <div>
             <x-jet-label value="Subcategorías" />
-            <select class="w-full form-control" wire:model="subcategory_id">
+            <select class="w-full form-control" wire:model="product.subcategory_id">
                 <option value="" selected disabled>Seleccione una subcategoría</option>
 
                 @foreach ($subcategories as $subcategory)
@@ -29,7 +33,7 @@
                 @endforeach
             </select>
 
-            <x-jet-input-error for="subcategory_id" />
+            <x-jet-input-error for="product.subcategory_id" />
         </div>
     </div>
 
@@ -38,9 +42,9 @@
         <x-jet-label value="Nombre" />
         <x-jet-input type="text"
                     class="w-full"
-                    wire:model="name"
+                    wire:model="product.name"
                     placeholder="Ingrese el nombre del producto" />
-        <x-jet-input-error for="name" />
+        <x-jet-input-error for="product.name" />
     </div>
 
     {{-- Slug --}}
@@ -52,24 +56,21 @@
             class="w-full bg-gray-200"
             placeholder="Ingrese el slug del producto" />
 
-    <x-jet-input-error for="slug" />
+    <x-jet-input-error for="product.slug" />
     </div>
 
-
-
-    
 
     {{-- Descrición --}}
     <div class="mb-4">
         <div wire:ignore>
             <x-jet-label value="Descripción" />
             <textarea class="w-full form-control" rows="4"
-                wire:model="description"
+                wire:model="product.description"
                 x-data
                 x-init="ClassicEditor.create($refs.miEditor)
                 .then(function(editor){
                     editor.model.document.on('change:data', () => {
-                        @this.set('description', editor.getData())
+                        @this.set('product.description', editor.getData())
                     })
                 })
                 .catch( error => {
@@ -78,7 +79,7 @@
                 x-ref="miEditor">
             </textarea>
         </div>
-        <x-jet-input-error for="description" />
+        <x-jet-input-error for="product.description" />
     </div>
 
 
@@ -86,56 +87,53 @@
         {{-- Marca --}}
         <div>
             <x-jet-label value="Marca" />
-            <select class="form-control w-full" wire:model="brand_id">
+            <select class="form-control w-full" wire:model="product.brand_id">
                 <option value="" selected disabled>Seleccione una marca</option>
                 @foreach ($brands as $brand)
                     <option value="{{$brand->id}}">{{$brand->name}}</option>
                 @endforeach
             </select>
 
-            <x-jet-input-error for="brand_id"/>
+            <x-jet-input-error for="product.brand_id"/>
         </div>
 
         {{-- Precio --}}
         <div>
             <x-jet-label value="Precio" />
             <x-jet-input
-                wire:model="price"
+                wire:model="product.price"
                 type="number"
                 class="w-full"
                 {{-- step=".01"  --}}
                 />
-            <x-jet-input-error for="price" />
+            <x-jet-input-error for="product.price" />
         </div>
     </div>
 
-    {{-- @if ($subcategory_id)
-
-        @if (!$this->subcategory->color && !$this->subcategory->size) --}}
 
             <div>
                 <x-jet-label value="Cantidad"/>
                 <x-jet-input
-                    wire:model="quantity"
+                    wire:model="product.quantity"
                     type="number"
                     class="w-full" />
-                <x-jet-input-error for="quantity" />
+                <x-jet-input-error for="product.quantity" />
             </div>
 
-        {{-- @endif
 
-    @endif --}}
-
-
-    <div class="flex mt-4">
+    <div class="flex justify-end items-center mt-4">
+        <x-jet-action-message class="mr-3" on="saved">
+            Actualizado
+        </x-jet-action-message>
         <x-jet-button
             wire:loading.attr="disabled"
             wire:target="save"
-            wire:click="save"
-            class="ml-auto">
-            Crear producto
+            wire:click="save">
+            Actualizar producto
         </x-jet-button>
     </div>
+</div>
 
 </div>
+
 
