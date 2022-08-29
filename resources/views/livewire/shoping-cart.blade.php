@@ -126,7 +126,7 @@
 
                     {{-- agregando lo nuevo --}}
                     <x-button-enlace  href="{{ route('orders.create') }}">
-                        Ir pagar
+                        Crear orden
                     </x-button-enlace>
 
                 </div>
