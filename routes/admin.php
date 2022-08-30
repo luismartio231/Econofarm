@@ -26,8 +26,7 @@ Route::get('products/create', CreateProduct::class)->name('admin.products.create
 
 Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.edit');
 
-// Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.edit');
-// Route::post('products/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');
+Route::post('products/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');
 
 // Route::get('orders', [OrderController::class, 'index'])->name('admin.orders.index');
 // Route::get('orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
