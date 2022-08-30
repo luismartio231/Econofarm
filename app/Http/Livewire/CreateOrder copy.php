@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\City;
 use Livewire\Component;
-use App\Models\District;
+
 use App\Models\Department;
-use App\Models\Orders;
+use App\Models\District;
+use App\Models\Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CreateOrder extends Component
@@ -26,17 +27,36 @@ class CreateOrder extends Component
         'envio_type' => 'required'
     ];
 
-
-    public function render()
-    {
-        return view('livewire.create-order');
-    }
-
-    public function mount()
-    {
+    public function mount(){
         $this->departments = Department::all();
     }
 
+    public function updatedEnvioType($value){
+        if ($value == 1) {
+            $this->resetValidation([
+                'department_id', 'city_id', 'district_id', 'address', 'references'
+            ]);
+        }
+    }
+
+
+    public function updatedDepartmentId($value){
+        $this->cities = City::where('department_id', $value)->get();
+
+        $this->reset(['city_id', 'district_id']);
+    }
+
+
+    public function updatedCityId($value){
+
+        $city = City::find($value);
+
+        $this->shipping_cost = $city->cost;
+
+        $this->districts = District::where('city_id', $value)->get();
+
+        $this->reset('district_id');
+    }
 
 
     public function create_order(){
@@ -53,7 +73,7 @@ class CreateOrder extends Component
 
         $this->validate($rules);
 
-        $order = new Orders();
+        $order = new Order();
 
         $order->user_id = auth()->user()->id;
         $order->contact = $this->contact;
@@ -65,61 +85,34 @@ class CreateOrder extends Component
 
         if ($this->envio_type == 2) {
             $order->shipping_cost = $this->shipping_cost;
-            $order->department_id = $this->department_id;
+            /* $order->department_id = $this->department_id;
             $order->city_id = $this->city_id;
             $order->district_id = $this->district_id;
             $order->address = $this->address;
-            $order->references = $this->references;
-            // $order->envio = json_encode([
-            //     'department' => Department::find($this->department_id)->name,
-            //     'city' => City::find($this->city_id)->name,
-            //     'district' => City::find($this->district_id)->name,
-            //     'address' => $this->address,
-            //     'references' => $this->references
-            // ]);
+            $order->references = $this->references; */
+            $order->envio = json_encode([
+                'department' => Department::find($this->department_id)->name,
+                'city' => City::find($this->city_id)->name,
+                'district' => City::find($this->district_id)->name,
+                'address' => $this->address,
+                'references' => $this->references
+            ]);
         }
 
         $order->save();
 
-        // foreach (Cart::content() as $item) {
-        //     discount($item);
-        // }
+        foreach (Cart::content() as $item) {
+            discount($item);
+        }
 
         Cart::destroy();
 
         return redirect()->route('orders.payment', $order);
     }
 
-
-    public function updatedEnvioType($value){
-        if ($value == 1) {
-            $this->resetValidation([
-                'department_id', 'city_id', 'district_id', 'address', 'references'
-            ]);
-        }
+    public function render()
+    {
+        return view('livewire.create-order');
     }
-
-
-
-
-
-    public function updatedDepartmentId($value){
-        $this->cities = City::where('department_id', $value)->get();
-
-        $this->reset(['city_id', 'district_id']);
-    }
-
-
-
-    public function updatedCityId($value){
-
-        $city = City::find($value);
-
-        $this->shipping_cost = $city->cost;
-
-        $this->districts = District::where('city_id', $value)->get();
-
-        $this->reset('district_id');
-    }
-
 }
+

@@ -57,11 +57,9 @@ class CreateProduct extends Component
 
         $rules = $this->rules;
 
-        if ($this->subcategory_id) {
-            if (!$this->subcategory->color && !$this->subcategory->size) {
+
                 $rules['quantity'] = 'required';
-            }
-        }
+
 
         $this->validate($rules);
 
@@ -73,11 +71,7 @@ class CreateProduct extends Component
         $product->price = $this->price;
         $product->subcategory_id = $this->subcategory_id;
         $product->brand_id = $this->brand_id;
-        if ($this->subcategory_id) {
-            if (!$this->subcategory->color && !$this->subcategory->size) {
-                $product->quantity = $this->quantity;
-            }
-        }
+        $product->quantity = $this->quantity;
 
         $product->save();
 
