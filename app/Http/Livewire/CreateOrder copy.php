@@ -37,7 +37,7 @@ class CreateOrder extends Component
                 'department_id', 'city_id', 'district_id', 'address', 'references'
             ]);
         }
-    } 
+    }
 
 
     public function updatedDepartmentId($value){

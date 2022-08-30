@@ -45,6 +45,8 @@ return new class extends Migration
 
             $table->string('address')->nullable();
 
+            $table->string('references')->nullable();
+
 
             // $table->json('envio')->nullable();
 
