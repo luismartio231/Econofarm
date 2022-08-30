@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 class Ordercontroller extends Controller
 {
 
-    public function payment(Orders $order){
 
 
-        return view('orders.payment', compact('order'));
+    public function payment(Orders $order)
+    {
 
+        $items = json_decode($order->content);
+
+        return view('orders.payment', compact('order', 'items'));
     }
 }
