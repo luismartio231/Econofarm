@@ -1,5 +1,24 @@
 <x-app-layout>
 
+    @php
+
+        // SDK de Mercado Pago
+        require base_path('vendor/autoload.php');
+        // Agrega credenciales
+        MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
+
+        // Crea un objeto de preferencia
+        $preference = new MercadoPago\Preference();
+
+        // Crea un ítem en la preferencia
+        $item = new MercadoPago\Item();
+        $item->title = 'Mi producto';
+        $item->quantity = 1;
+        $item->unit_price = 75;
+        $preference->items = [$item];
+        $preference->save();
+
+    @endphp
 
     <div class="container py-8">
 
@@ -23,7 +42,7 @@
                         <p class="text-sm">Los productos deben ser recojidos en la tienda</p>
                         <p class="text-sm"> Cra 21 #35-39</p>
                     @else
-                        <p class="text-sm">Los productos deben seran enviados a:</p>
+                        <p class="text-sm">Los productos deben ser enviados a:</p>
                         <p class="text-sm">{{ $order->address }}</p>
                         <p>{{ $order->department->name }} - {{ $order->city->name }} - {{ $order->district->name }} </p>
                     @endif
@@ -42,7 +61,7 @@
 
         </div>
 
-        <div class="bg-white rounded-lg shadow-lg p-6 text-gray-700">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-gray-700 mb-6">
 
             <p class="text-xl font-semibold mb-4">
                 Resumen
@@ -95,18 +114,60 @@
                     @endforeach
 
 
-
                 </tbody>
 
             </table>
 
+
+
+
         </div>
 
-        <div>
+        <div class="bg-white rounded-lg shadow-lg p-6 flex justify-between items-center">
+            <img class="h-10 " src="{{ asset('img/images.png') }}" alt="">
+
+            <div class="text-gray-700">
+                <p class=" text-sm font-semibold uppercase">
+                    Subtotal: $ {{ $order->total - $order->shipping_cost }}
+                </p>
+
+
+                <p class="text-sm font-semibold uppercase">
+                    Envio: $ {{ $order->shipping_cost }}
+                </p>
+
+                <p class="text-lg font-semibold uppercase">
+                    Pago: $ {{ $order->total }}
+                </p>
+
+                <div class="cho-container">
+
+                </div>
+            </div>
+
+
 
         </div>
 
 
     </div>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <div class="cho-container"></div>
+    <script>
+        const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
+            locale: 'es-AR'
+        });
+
+        mp.checkout({
+            preference: {
+                id: '{{ $preference->id }}'
+            },
+            render: {
+                container: '.cho-container',
+                label: 'Pagar',
+            }
+        });
+    </script>
 
 </x-app-layout>
