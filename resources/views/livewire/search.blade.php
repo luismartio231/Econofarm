@@ -2,12 +2,14 @@
 
     <form action="{{ route('search') }}" autocomplete="off">
 
-        <x-jet-input name="name" wire:model="search" tiye="text" class="w-full h-10 text-center"
-            placeholder="¿Que estas buscando?" />
+        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
 
-        <button class="absolute top-0 right-0 w-12 h-full bg-gray-500 flex item-center justify-center rounded-r-md">
-            <x-search size="35" color="red" />
-        </button>
+
+        <x-jet-input name="name" wire:model="search" tiye="text" class=" h-10 pl-10 w-full text-center outline-none border border-blue-500 rounded-3xl"
+            placeholder="Busca aqui tus productos" />
+
+            <button type="submit" class="text-white absolute top-1.5 right-2.5 outline-none bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1 dark:bg-blue-600 ">Buscar</button>
+
     </form>
 
     <div class="absolute w-full mt-1  hidden" :class="{ 'hidden': !$wire.open }" @click.away="$wire.open = false">

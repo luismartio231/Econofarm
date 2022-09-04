@@ -3,11 +3,13 @@
     @if (count($products))
 
 
-        <div class="glider-contain">
+        <div class="glider-contain bg-white p-8 rounded-lg">
+
+
             <ul class="glider-{{$category->id}}">
                 @foreach ($products as $product)
 
-                    <li class="bg-white rounded-lg shadow {{ $loop->last ? '' : 'sm:mr-5' }}">
+                    <li class="bg-white rounded-lg border border-gray-200 shadow {{ $loop->last ? '' : 'sm:mr-5' }}">
 
                         <article>
                             <figure>

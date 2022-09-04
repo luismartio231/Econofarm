@@ -1,14 +1,14 @@
 @props(['category'])
 
-<div class="grid grid-cols-4 p-4">
+<div class="w-full  bg-white text-sm text-gray-700 dark:text-gray-700 md:grid-cols-3 md:px-6">
 
     <div>
-        <p class=" text-lg font-bold text-center text-trueGray-500 md-3">Subcategoria</p>
-        <ul>
+        {{--  <p class=" text-lg font-bold text-center text-trueGray-500 md-3">Subcategoria</p> --}}
+        <ul class="space-y-4 sm:mb-4 md:mb-0">
             @foreach ($category->subcategories as $subcategory)
-                <li>
-                    <a href=""
-                        class="text-trueGray-500 inline-block font-semibold py-1 px-4 hover:text-blue-500">
+                <li class="">
+                    <a href="{{route('categories.show', $category) . '?subcategoria=' . $subcategory->slug}}"
+                        class="hover:underline hover:text-blue-600 dark:hover:text-blue-500">
                         {{ $subcategory->name }}
                     </a>
                 </li>
@@ -16,9 +16,9 @@
         </ul>
     </div>
 
-    <div class="col-span-3">
+    {{-- <div class="col-span-3">
 
         <img class="h-64 w-full object-cover object-center" src="{{Storage::url($category->image)}}" alt="">
 
-    </div>
+    </div> --}}
 </div>
