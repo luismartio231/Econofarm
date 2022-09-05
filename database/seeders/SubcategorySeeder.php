@@ -130,7 +130,7 @@ class SubcategorySeeder extends Seeder
 
                 'category_id' => '4'
 
-            ],
+            ],  
 
 
 
@@ -145,7 +145,7 @@ class SubcategorySeeder extends Seeder
 
         foreach ($subcategories as $subcategory) {
 
-            subcategory::factory(1)->create($subcategory)->first();
+            subcategory::create($subcategory)->first();
         }
     }
 }

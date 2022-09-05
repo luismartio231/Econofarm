@@ -22,8 +22,8 @@
             <ul class="divide-y divide-gray-400">
                 @foreach ($category->subcategories as $subcategory)
                     <li class="py-2 text-sm">
-                        <a class="cursor-pointer hover:text-blue-400 capitalize {{ $subcategoria == $subcategory->name ? 'text-blue-600 font-semibold' : '' }}"
-                            wire:click="$set('subcategoria', '{{ $subcategory->name }}')">{{ $subcategory->name }}</a>
+                        <a class="cursor-pointer hover:text-blue-400 capitalize {{ $subcategoria == $subcategory->slug ? 'text-blue-600 font-semibold' : '' }}"
+                            wire:click="$set('subcategoria', '{{ $subcategory->slug }}')">{{ $subcategory->name }}</a>
                     </li>
                 @endforeach
             </ul>
@@ -49,7 +49,7 @@
 
 
                 <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    @foreach ($products as $product)
+                    @forelse ($products as $product)
                         <li class="bg-white rounded-lg shadow">
 
                             <article>
@@ -73,14 +73,34 @@
 
                             </article>
                         </li>
-                    @endforeach
+
+                    @empty
+
+                    <li class="md:col-span-2 lg:col-span-4">
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">Upss!</strong>
+                            <span class="block sm:inline">No existe ningún producto con ese filtro</span>
+
+                          </div>
+                    </li>
+
+                    @endforelse
 
                 </ul>
             @else
                 <ul>
-                    @foreach ($products as $product)
+                    @forelse ($products as $product)
                         <x-product-list :product="$product" />
-                    @endforeach
+
+                    @empty
+
+
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Upss!</strong>
+                        <span class="block sm:inline">No existe ningún producto con ese filtro</span>
+
+                    </div>
+                    @endforelse
                 </ul>
 
             @endif
