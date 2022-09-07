@@ -27,10 +27,10 @@ class MergeTheCartLogout
      */
     public function handle(Logout $event)
     {
-      //eliminar registro
-    //   Cart::erase(auth()->user()->id);
 
-      //nuevo registro
-    //   Cart::store(auth()->user()->id);
+      Cart::restore(auth()->user()->id);
+
+
+      Cart::store(auth()->user()->id);
     }
 }

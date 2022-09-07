@@ -69,7 +69,7 @@
 
                     <x-slot name="trigger">
 
-                        <i class="fas fa-user-circle text-white text-4xl cursor-pointer">
+                        <i class="fas fa-user-circle text-blue-400 text-4xl cursor-pointer">
 
                         </i>
 
