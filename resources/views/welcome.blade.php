@@ -21,6 +21,15 @@
     </div>
 
 
+    <div class="container">
+
+        <div class="bg-blue-600 w-96 ">
+            Bienvenido a la pagina
+        </div>
+
+    </div>
+
+
     @push('script')
         <script>
             Livewire.on('glider', function(id) {
@@ -32,7 +41,7 @@
                     arrows: {
                         prev: '.glider-' + id + '~ .glider-prev',
                         next: '.glider-' + id + '~ .glider-next'
-                    },
+                    }, 
 
                     responsive: [{
                             breakpoint: 640,
