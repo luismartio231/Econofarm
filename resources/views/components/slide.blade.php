@@ -35,14 +35,29 @@
 
     @keyframes cambio {
 
-        0% { margin-left: 0; }
-        35% { margin-left: 0; }
+        0% {
+            margin-left: 0;
+        }
 
-        40% { margin-left: -100% }
-        75% { margin-left: -100% }
+        35% {
+            margin-left: 0;
+        }
 
-        80% { margin-left: -200% }
-        100% { margin-left: -200% }
+        40% {
+            margin-left: -100%
+        }
+
+        75% {
+            margin-left: -100%
+        }
+
+        80% {
+            margin-left: -200%
+        }
+
+        100% {
+            margin-left: -200%
+        }
 
 
     }
@@ -64,3 +79,21 @@
         </ul>
 
     </div>
+
+</div>
+
+
+{{-- <div class="flexslider" >
+    <ul class="slides ">
+        <li>
+            <img src="{{ asset('img/slide1.png') }}" />
+        </li>
+        <li>
+            <img src="{{ asset('img/slide2.png') }}" />
+        </li>
+        <li>
+            <img src="{{ asset('img/slide3.png') }}" />
+        </li>
+
+    </ul>
+</div> --}}

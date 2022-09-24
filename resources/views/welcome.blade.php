@@ -1,10 +1,14 @@
 <x-app-layout>
 
 
-   <x-slide></x-slide>
 
 
-   <div class="container py-8 mt-4 " >
+
+    <div class="container py-8 mt-4 ">
+
+        <x-slide ></x-slide>
+
+
         @foreach ($categories as $category)
             <section class="mb-8">
                 <div class="flex items-center mb-2">
@@ -66,6 +70,13 @@
                 });
 
             });
+
+
+            // $(document).ready(function() {
+            //     $('.flexslider').flexslider({
+            //         animation: "slide"
+            //     });
+            // });
         </script>
     @endpush
 </x-app-layout>
