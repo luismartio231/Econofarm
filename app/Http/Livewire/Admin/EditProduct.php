@@ -51,6 +51,10 @@ class EditProduct extends Component
         })->get();
     }
 
+    public function refreshProduct(){
+        $this->product = $this->product->fresh();
+    }
+
     public function updatedCategoryId($value){
         $this->subcategories = Subcategory::where('category_id', $value)->get();
 
@@ -87,6 +91,28 @@ class EditProduct extends Component
         $this->product->save();
 
         $this->emit('saved');
+    }
+
+    public function deleteImage(Image $image){
+        Storage::delete([$image->url]);
+        $image->delete();
+
+        $this->product = $this->product->fresh();
+    }
+
+    public function delete(){
+
+        $images = $this->product->images;
+
+        foreach ($images as $image) {
+            Storage::delete($image->url);
+            $image->delete();
+        }
+
+        $this->product->delete();
+
+        return redirect()->route('admin.index');
+
     }
 
     public function render()

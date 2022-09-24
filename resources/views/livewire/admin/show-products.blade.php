@@ -9,7 +9,7 @@
                 Agregar producto
             </x-button-enlace>
         </div>
-    </x-slot> 
+    </x-slot>
 
      <div class="container p-10"> {{-- flex w-12/12  Para agregar el espacio a la derecha --}}
 
@@ -63,7 +63,7 @@
                                                     src="{{ Storage::url($product->images->first()->url) }}" alt="">
                                             @else
                                                 <img class="h-10 w-10 rounded-full object-cover"
-                                                    src="https://images.pexels.com/photos/4883800/pexels-photo-4883800.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                                    src="https://media.istockphoto.com/vectors/vector-cartoon-capsule-pills-tablet-icon-in-comic-style-medical-pills-vector-id1308408500?s=2048x2048" alt="">
                                             @endif
                                         </div>
                                         <div class="ml-4">
