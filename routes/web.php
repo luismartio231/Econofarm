@@ -13,8 +13,7 @@ use App\Http\Livewire\ShopingCart;
 use App\Models\Orders;
 use Symfony\Component\Routing\Route as ComponentRoutingRoute;
 use App\Http\Livewire\PaymentOrder;
-
-
+use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
 
 Route::get('/', welcomeController::class);
 
@@ -45,3 +44,6 @@ Route::middleware(['auth'])->group(function(){
     // Route::post('webhooks', WebhooksController::class);
 
 });
+
+
+

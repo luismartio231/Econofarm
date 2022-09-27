@@ -98,7 +98,7 @@
 
 
 
-<div class="bg-blue-500 h-5 w-full   ">
+<div class="bg-blue-500 h-8 w-full text-center">
 
 
 
@@ -108,15 +108,15 @@
 
             <ul class="flex  text-sm font-medium md:flex-row md:space-x-8 md:mt-0">
                 @foreach ($categories as $category)
-                    <li class="navigation-link w-full">
+                    <li class="navigation-link w-full mt-2">
                         <a href="{{ route('categories.show', $category) }}"
-                            class="   font-medium text-white  md:w-auto">
+                            class="   font-medium text-white  md:w-auto ">
 
                             {{ $category->name }}
 
                         </a>
 
-                        <div class="navigation-submenu bg-gray-100 border-t-4 border-emerald-500 w-3/4 h-full  hidden">
+                        <div class="navigation-submenu bg-gray-100 border-t-4 border-emerald-300 w-3/4 h-full  hidden">
 
                             <x-navigation-subcategories :category="$category" />
                         </div>

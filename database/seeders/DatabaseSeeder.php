@@ -14,9 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Storage::deleteDirectory('products');
         Storage::deleteDirectory('categories');
         Storage::deleteDirectory('subcategories');
-        Storage::deleteDirectory('products');
 
         Storage::makeDirectory('products');
         Storage::makeDirectory('categories');

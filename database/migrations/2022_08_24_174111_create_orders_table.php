@@ -43,7 +43,7 @@ return new class extends Migration
             $table->unsignedBigInteger('district_id')->nullable();
             $table->foreign('district_id')->references('id')->on('districts');
 
-            $table->string('addres')->nullable();
+            $table->string('address')->nullable();
 
             $table->string('references')->nullable();
 

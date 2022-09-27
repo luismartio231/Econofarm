@@ -66,7 +66,7 @@
 
 
 
-<div class="container py-8">
+<div class="mb-8">
 
 
     <div class="slider">
@@ -79,25 +79,5 @@
         </ul>
 
     </div>
-<<<<<<< HEAD
 
 </div>
-
-
-{{-- <div class="flexslider" >
-    <ul class="slides ">
-        <li>
-            <img src="{{ asset('img/slide1.png') }}" />
-        </li>
-        <li>
-            <img src="{{ asset('img/slide2.png') }}" />
-        </li>
-        <li>
-            <img src="{{ asset('img/slide3.png') }}" />
-        </li>
-
-    </ul>
-</div> --}}
-=======
-</div>
->>>>>>> ce994ba7773c19c2e4638bb9c875cb41ebcbd6f0

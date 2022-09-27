@@ -4,20 +4,14 @@
 
 
 
-    <div class="container py-8 mt-4 ">
+    <div class="container mt-6 ">
 
-        <x-slide ></x-slide>
+        <x-slide></x-slide>
 
 
         @foreach ($categories as $category)
-            <section class="mb-8">
-                <div class="flex items-center mb-2">
-                    <h1 class="text-lg uppercase font-semibold text-gray-700">
-                        {{ $category->name }}
-                    </h1>
-                    <a href="{{ route('categories.show', $category) }}"
-                        class="text-blue-500 hover:text-orange-500 hover:underline ml-2 font-semibold">Ver más</a>
-                </div>
+            <section class="mb-4">
+
 
                 @livewire('category-products', ['category' => $category])
             </section>
@@ -25,67 +19,5 @@
     </div>
 
 
-    <div class="container">
 
-        <div class="bg-blue-600 w-96 ">
-            Bienvenido a la pagina
-        </div>
-
-    </div>
-
-
-    @push('script')
-        <script>
-            Livewire.on('glider', function(id) {
-                new Glider(document.querySelector('.glider-' + id), {
-                    slidesToScroll: 1,
-                    slidesToShow: 1,
-                    draggable: true,
-                    dots: '.glider-' + id + '~ .dots',
-                    arrows: {
-                        prev: '.glider-' + id + '~ .glider-prev',
-                        next: '.glider-' + id + '~ .glider-next'
-                    }, 
-
-                    responsive: [{
-                            breakpoint: 640,
-                            settings: {
-                                slidesToScroll: 2,
-                                slidesToShow: 2.5,
-                            }
-                        },
-                        {
-                            breakpoint: 768,
-                            settings: {
-                                slidesToScroll: 3,
-                                slidesToShow: 3.5,
-                            }
-                        }, {
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToScroll: 4,
-                                slidesToShow: 4.5,
-                            }
-                        }, {
-                            breakpoint: 1240,
-                            settings: {
-                                slidesToScroll: 5,
-                                slidesToShow: 6,
-                            }
-                        }
-                    ]
-
-
-                });
-
-            });
-
-
-            // $(document).ready(function() {
-            //     $('.flexslider').flexslider({
-            //         animation: "slide"
-            //     });
-            // });
-        </script>
-    @endpush
 </x-app-layout>
