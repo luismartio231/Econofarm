@@ -1,7 +1,7 @@
 <x-app-layout>
 
 
-   <x-slide></x-slide>
+   
 
 
    <div class="container py-8 mt-4 " >
@@ -41,7 +41,7 @@
                     arrows: {
                         prev: '.glider-' + id + '~ .glider-prev',
                         next: '.glider-' + id + '~ .glider-next'
-                    }, 
+                    },
 
                     responsive: [{
                             breakpoint: 640,

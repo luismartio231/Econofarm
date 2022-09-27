@@ -145,7 +145,8 @@ class SubcategorySeeder extends Seeder
 
         foreach ($subcategories as $subcategory) {
 
-            subcategory::factory(1)->create($subcategory)->first();
+            subcategory::create($subcategory);
         }
     }
 }
+// ->first() estaba despues de subcategoria 

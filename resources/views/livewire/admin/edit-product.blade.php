@@ -1,3 +1,19 @@
+<div>
+
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <h1 class="font-semibold text-xl text-gray-800 leading-tight">
+                    Productos
+                </h1>
+
+                <x-jet-danger-button wire:click="$emit('deleteProduct')">
+                    Eliminar
+                </x-jet-danger-button>
+            </div>
+        </div>
+    </header>
+
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-700">
 
     <h1 class="text-3xl text-center font-semibold mb-8">Complete esta información para crear un producto</h1>
@@ -29,9 +45,11 @@
                 </ul>
             </section>
 
-        @endif
+    @endif
 
-<div class="bg-white shadow-xl rounded-lg p-6">
+    @livewire('admin.status-product', ['product' => $product], key('status-product-' . $product->id))
+
+ <div class="bg-white shadow-xl rounded-lg p-6">
 
     <div class="grid grid-cols-2 gap-6 mb-4">
 
@@ -161,9 +179,13 @@
             Actualizar producto
         </x-jet-button>
     </div>
+ </div>
+
+
+
 </div>
 
-@push('script')
+    @push('script')
         <script>
             Dropzone.options.myAwesomeDropzone = {
                 headers: {
@@ -185,32 +207,33 @@
             Livewire.on('deleteProduct', () => {
 
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: '¿Estas seguro?',
+                    text: "¡No podrás revertir esto!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: '¡Sí, bórralo!'
                 }).then((result) => {
                     if (result.isConfirmed) {
 
                         Livewire.emitTo('admin.edit-product', 'delete');
 
                         Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
+                            '¡Eliminado!',
+                            'Su archivo ha sido eliminado.',
+                            'éxito'
                         )
                     }
                 })
 
             })
 
-            
+
         </script>
     @endpush
 
+
+
+
 </div>
-
-
