@@ -70,13 +70,7 @@ class CreateOrder extends Component
             $order->district_id = $this->district_id;
             $order->address = $this->address;
             $order->references = $this->references;
-            // $order->envio = json_encode([
-            //     'department' => Department::find($this->department_id)->name,
-            //     'city' => City::find($this->city_id)->name,
-            //     'district' => City::find($this->district_id)->name,
-            //     'address' => $this->address,
-            //     'references' => $this->references
-            // ]);
+
         }
 
         $order->save();

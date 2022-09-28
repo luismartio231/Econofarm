@@ -35,14 +35,29 @@
 
     @keyframes cambio {
 
-        0% { margin-left: 0; }
-        35% { margin-left: 0; }
+        0% {
+            margin-left: 0;
+        }
 
-        40% { margin-left: -100% }
-        75% { margin-left: -100% }
+        35% {
+            margin-left: 0;
+        }
 
-        80% { margin-left: -200% }
-        100% { margin-left: -200% }
+        40% {
+            margin-left: -100%
+        }
+
+        75% {
+            margin-left: -100%
+        }
+
+        80% {
+            margin-left: -200%
+        }
+
+        100% {
+            margin-left: -200%
+        }
 
 
     }
@@ -51,7 +66,7 @@
 
 
 
-<div class="container py-8">
+<div class="mb-8">
 
 
     <div class="slider">
@@ -64,4 +79,5 @@
         </ul>
 
     </div>
+
 </div>
