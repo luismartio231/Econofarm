@@ -35,11 +35,12 @@ Route::post('products/{product}/files', [ProductController::class, 'files'])->na
 Route::get('categories', [CategoryController::class, 'index'])->name('admin.categories.index');
 Route::get('categories/{category}', ShowCategory::class)->name('admin.categories.show');
 
-Route::get('brands', BrandComponent::class)->name('admin.brands.index'); 
+Route::get('brands', BrandComponent::class)->name('admin.brands.index');
 
-// Route::get('departments', DepartmentComponent::class)->name('admin.departments.index');
+//Route::get('departments', DepartmentComponent::class)->name('admin.departments.index');
 // Route::get('departments/{department}', ShowDepartment::class)->name('admin.departments.show');
 
 // Route::get('cities/{city}', CityComponent::class)->name('admin.cities.show');
 
 // Route::get('users', UserComponent::class)->name('admin.users.index');
+
