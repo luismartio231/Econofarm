@@ -4,6 +4,7 @@
 
 
 
+
     <div class="container mt-6 ">
 
         <x-slide></x-slide>
