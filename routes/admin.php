@@ -25,12 +25,11 @@ Route::get('products/create', CreateProduct::class)->name('admin.products.create
 
 
 Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.edit');
-
-
 Route::post('products/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');
 
-// Route::get('orders', [OrderController::class, 'index'])->name('admin.orders.index');
-// Route::get('orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
+
+Route::get('orders', [OrderController::class, 'index'])->name('admin.orders.index');
+Route::get('orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
 
 Route::get('categories', [CategoryController::class, 'index'])->name('admin.categories.index');
 Route::get('categories/{category}', ShowCategory::class)->name('admin.categories.show');
@@ -42,4 +41,4 @@ Route::get('brands', BrandComponent::class)->name('admin.brands.index');
 
 // Route::get('cities/{city}', CityComponent::class)->name('admin.cities.show');
 
-// Route::get('users', UserComponent::class)->name('admin.users.index');
+Route::get('users', UserComponent::class)->name('admin.users.index');

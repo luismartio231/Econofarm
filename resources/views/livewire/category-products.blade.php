@@ -53,10 +53,7 @@
 </div>
 
 
-{{-- <div class="text-center mt-20">
 
-            <div class="loader">Loading...</div>
-        </div> --}}
 @endif
 
 

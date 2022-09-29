@@ -12,16 +12,26 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+
+                    <x-jet-nav-link href="{{ route('admin.orders.index') }}" :active="request()->routeIs('admin.orders.*')">
+                        Ordenes
+                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
                         Productos
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')">
+                    <x-jet-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.*')">
                         Categorias
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{route('admin.brands.index')}}" :active="request()->routeIs('admin.brands.*')">
+                    <x-jet-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.*')">
                         Marcas
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
+                        Usuarios
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -162,11 +172,11 @@
             <x-jet-responsive-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
                 Productos
             </x-jet-responsive-nav-link>
-            <x-jet-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')">
+            <x-jet-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.*')">
                 Categorias
             </x-jet-nav-link>
 
-            <x-jet-nav-link href="{{route('admin.brands.index')}}" :active="request()->routeIs('admin.brands.*')">
+            <x-jet-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.*')">
                 Marcas
             </x-jet-nav-link>
         </div>
