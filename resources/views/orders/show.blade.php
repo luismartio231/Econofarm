@@ -67,8 +67,8 @@
                         <p class="text-sm">Calle falsa 123</p>
                     @else
                     <p class="text-sm">Los productos deben ser enviados a:</p>
-                    <p class="text-sm">{{ $order->address }}</p>
-                    <p>{{ $order->department->name }} - {{ $order->city->name }} - {{ $order->district->name }}
+                    <p class="text-sm"> {{$envio->address }} </p>
+                    <p>{{ $envio->department}} - {{ $envio->city}} - {{ $envio->district}}
                     </p>
                     @endif
 
@@ -92,7 +92,7 @@
                     <tr>
                         <th></th>
                         <th>Precio</th>
-                        <th>Cant</th>
+                        <th>Cantidad</th>
                         <th>Total</th>
                     </tr>
                 </thead>

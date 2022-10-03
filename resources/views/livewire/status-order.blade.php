@@ -112,7 +112,11 @@
                 <tr>
                     <th></th>
                     <th>Precio</th>
+<<<<<<< HEAD
+                    <th>Cantidad</th>
+=======
                     <th>Cant</th>
+>>>>>>> 4ea156376a8c22da751cf456639ec54447559b9f
                     <th>Total</th>
                 </tr>
             </thead>

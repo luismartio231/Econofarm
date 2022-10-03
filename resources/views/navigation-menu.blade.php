@@ -30,9 +30,11 @@
                         Marcas
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
-                        Usuarios
+                    <x-jet-nav-link href="{{ route('admin.departments.index') }}" :active="request()->routeIs('admin.departments.index')">
+                        Departamentos
                     </x-jet-nav-link>
+
+
                 </div>
             </div>
 
@@ -179,6 +181,14 @@
             <x-jet-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.*')">
                 Marcas
             </x-jet-nav-link>
+
+            <x-jet-nav-link href="{{ route('admin.departments.index') }}" :active="request()->routeIs('admin.departments.index')">
+                Departamentos
+            </x-jet-nav-link>
+
+
+
+
         </div>
 
         <!-- Responsive Settings Options -->

@@ -46,8 +46,8 @@
                             <p class="text-sm"> Cra 21 #35-39</p>
                         @else
                             <p class="text-sm">Los productos deben ser enviados a:</p>
-                            <p class="text-sm">{{ $order->address }}</p>
-                            <p>{{ $order->department->name }} - {{ $order->city->name }} - {{ $order->district->name }}
+                            <p class="text-sm">{{ $envio->address }}</p>
+                            <p>{{$envio->department}} - {{$envio->city}} - {{$envio->district}}
                             </p>
                         @endif
 

@@ -5,21 +5,19 @@
                 Lista de productos
             </h2>
 
-            <x-button-enlace class="ml-auto" href="{{ route('admin.products.create')}}">
+            <x-button-enlace class="ml-auto" href="{{ route('admin.products.create') }}">
                 Agregar producto
             </x-button-enlace>
         </div>
     </x-slot>
 
-     <div class="container p-10"> {{-- flex w-12/12  Para agregar el espacio a la derecha --}}
+    <div class="container p-10"> {{-- flex w-12/12  Para agregar el espacio a la derecha --}}
 
         <x-table-responsive>
 
             <div class="px-6 py-4">
 
-                <x-jet-input type="text"
-                    wire:model="search"
-                    class="w-full"
+                <x-jet-input type="text" wire:model="search" class="w-full"
                     placeholder="Ingrese el nombre del procucto que quiere buscar" />
 
             </div>
@@ -53,17 +51,18 @@
                     <tbody class="bg-white divide-y divide-gray-200">
 
                         @foreach ($products as $product)
-
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10">
                                             @if ($product->images->count())
                                                 <img class="h-10 w-10 rounded-full object-cover"
-                                                    src="{{ Storage::url($product->images->first()->url) }}" alt="">
+                                                    src="{{ Storage::url($product->images->first()->url) }}"
+                                                    alt="">
                                             @else
                                                 <img class="h-10 w-10 rounded-full object-cover"
-                                                    src="https://media.istockphoto.com/vectors/vector-cartoon-capsule-pills-tablet-icon-in-comic-style-medical-pills-vector-id1308408500?s=2048x2048" alt="">
+                                                    src="https://media.istockphoto.com/vectors/vector-cartoon-capsule-pills-tablet-icon-in-comic-style-medical-pills-vector-id1308408500?s=2048x2048"
+                                                    alt="">
                                             @endif
                                         </div>
                                         <div class="ml-4">
@@ -88,30 +87,30 @@
                                                 Borrador
                                             </span>
                                         @break
+
                                         @case(2)
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                 Publicado
                                             </span>
                                         @break
-                                        @default
 
+                                        @default
                                     @endswitch
 
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    $ {{$product->price}}
+                                    $ {{ $product->price }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="{{ route('admin.products.edit', $product)}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <a href="{{ route('admin.products.edit', $product) }}"
+                                        class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                 </td>
                             </tr>
-
                         @endforeach
                         <!-- More people... -->
                     </tbody>
                 </table>
-
             @else
                 <div class="px-6 py-4">
                     No hay ningún registro coincidente
@@ -119,11 +118,9 @@
             @endif
 
             @if ($products->hasPages())
-
                 <div class="px-6 py-4">
                     {{ $products->links() }}
                 </div>
-
             @endif
 
 

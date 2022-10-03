@@ -28,10 +28,14 @@ Route::get('products/{product}', [ProductController::class, 'show'])->name('prod
 Route::get('shoping-cart', ShopingCart::class)->name('shoping-cart');
 
 
+<<<<<<< HEAD
 
 
 
 Route::middleware(['auth'])->group(function () {
+=======
+Route::middleware(['auth'])->group(function(){
+>>>>>>> 6fe8f1d8ffdc1cef9d68965da307f68a955f7e21
 
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
 
