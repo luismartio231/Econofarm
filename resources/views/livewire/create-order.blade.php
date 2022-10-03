@@ -1,5 +1,5 @@
-<div class="container py-8 grid grid-cols-5 gap-6">
-    <div class="col-span-3 ">
+<div class="container py-8 grid lg:grid-cols-2 xl:grid-cols-5 gap-6">
+    <div class="order-2 lg:order-1 lg:col-span-1 xl:col-span-3">
 
         <div class="bg-white rounded-lg shadow p-6">
 
@@ -28,7 +28,7 @@
         <div x-data="{ envio_type: @entangle('envio_type') }">
             <p class="mt-6 mb-3 text-lg text-gray-700">Envios</p>
 
-            <label class="bg-white rounded-lg shadow mb-2 px-6 py-4 flex items-center">
+            <label class="bg-white rounded-lg shadow px-6 py-4 flex items-center mb-4 cursor-pointer">
 
                 <input x-model="envio_type" type="radio" value="1" name="envio_type" class="text-blue-700">
 
@@ -161,7 +161,7 @@
         </div>
     </div>
 
-    <div class="col-span-2">
+    <div class="order-1 lg:order-2 lg:col-span-1 xl:col-span-2">
 
         <div class="bg-white rounded-lg shadow p-6">
             <ul>

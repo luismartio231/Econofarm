@@ -7,12 +7,14 @@ use App\Http\Controllers\Ordercontroller;
 use App\Models\category;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
 use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\ShopingCart;
 use App\Models\Orders;
 use Symfony\Component\Routing\Route as ComponentRoutingRoute;
 use App\Http\Livewire\PaymentOrder;
+use App\Models\Review;
 use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
 
 Route::get('/', welcomeController::class);
@@ -29,7 +31,7 @@ Route::get('shoping-cart', ShopingCart::class)->name('shoping-cart');
 
 
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
 
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
 
@@ -46,4 +48,4 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
-
+Route::post('reviews/{product}', [ReviewController::class, 'store'])->name('reviews.store');

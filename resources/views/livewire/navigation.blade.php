@@ -13,11 +13,14 @@
         </div>
 
 
-        <div class="mx-6  mt-2 hidden md:block">
+
+
+
+        <div class="mx-6  mt-2 ">
             @livewire('dropdown-cart')
         </div>
 
-        <div class=" relative hidden md:block">
+        <div class=" relative ">
             @auth
 
 
@@ -98,13 +101,18 @@
 
     </div>
 
+    {{-- buscador mobil --}}
+
+    <div class=" mx-6 flex-1 lg:hidden  ">
+        @livewire('search')
+    </div>
 
 
-    <div class="bg-blue-500 h-8 w-full text-center">
+    <div class="  bg-blue-500 h-8 w-full text-center hidden md:block">
 
 
 
-        <nav class="container" style="z-index: 900">
+        <nav class="container " style="z-index: 900">
 
             <div x-on:click.away="close()" class="">
 
@@ -132,6 +140,7 @@
 
 
             </div>
+
 
         </nav>
     </div>

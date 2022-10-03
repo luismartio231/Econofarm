@@ -21,9 +21,9 @@
 
     @endphp --}}
 
-    <div class="grid grid-cols-5 gap-6 container py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 gap-6 container py-8">
 
-        <div class="col-span-3">
+        <div class="order-2 lg:order-1 xl:col-span-3">
 
             <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6">
 
@@ -132,7 +132,7 @@
 
         </div>
 
-        <div class="col-span-2">
+        <div class="order-1 lg:order-2 xl:col-span-2">
 
             <div class="bg-white rounded-lg shadow-lg px-6 pt-6 ">
 
@@ -195,31 +195,26 @@
 
     <script>
         paypal.Buttons({
-            // Sets up the transaction when a payment button is clicked
-            createOrder: (data, actions) => {
+            createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: "{{ $order->total }}" // Can also reference a variable or function
+                            value: "{{ $order->total }}"
                         }
                     }]
                 });
             },
-            // Finalize the transaction after payer approval
-            onApprove: (data, actions) => {
-                return actions.order.capture().then(function(orderData) {
-                    // Successful capture! For dev/demo purposes:
-                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                    const transaction = orderData.purchase_units[0].payments.captures[0];
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
 
                     Livewire.emit('payOrder');
-                    // When ready to go live, remove the alert and show a success message within this page. For example:
-                    // const element = document.getElementById('paypal-button-container');
-                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                    // Or go to another URL:  actions.redirect('thank_you.html');
+
+                    /* console.log(details);
+
+                    alert('Transaction completed by ' + details.payer.name.given_name); */
                 });
             }
-        }).render('#paypal-button-container');
+        }).render('#paypal-button-container'); // Display payment options on your web page
     </script>
 @endpush
 </div>

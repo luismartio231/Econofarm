@@ -2,8 +2,8 @@
 
     <div class="container py-12">
 
-        <section class="grid grid-cols-4 gap-6 text-white">
-           
+        <section class="grid lg:grid-cols-4 gap-6 text-white">
+
             <a href="{{ route('admin.orders.index') . "?status=2" }}" class="bg-gray-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$recibido}}
@@ -46,7 +46,7 @@
         </section>
 
         @if ($orders->count())
-        
+
             <section class="bg-white shadow-lg rounded-lg px-12 py-8 mt-12 text-gray-700">
                 <h1 class="text-2xl mb-4">Pedidos recientes</h1>
 
@@ -72,7 +72,7 @@
                                             <i class="fas fa-times-circle text-green-500 opacity-50"></i>
                                             @break
                                         @default
-                                            
+
                                     @endswitch
                                 </span>
 
@@ -87,32 +87,32 @@
                                     <span class="font-bold">
                                         @switch($order->status)
                                             @case(1)
-                                                
+
                                                 Pendiente
 
                                                 @break
                                             @case(2)
-                                                
+
                                                 Recibido
 
                                                 @break
                                             @case(3)
-                                                
+
                                                 Enviado
 
                                                 @break
                                             @case(4)
-                                                
+
                                                 Entregado
 
                                                 @break
                                             @case(5)
-                                                
+
                                                 Anulado
 
                                                 @break
                                             @default
-                                                
+
                                         @endswitch
                                     </span>
 
