@@ -18,6 +18,8 @@ use App\Http\Livewire\Admin\DepartmentComponent;
 
 use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\CityComponent;
+use App\Http\Livewire\Admin\UserComponent;
+
 //use App\Http\Livewire\Admin\UserComponent;
 
 Route::get('/', ShowProducts::class)->name('admin.index');
@@ -45,3 +47,4 @@ Route::get('cities/{city}', CityComponent::class)->name('admin.cities.show');
 
 //Route::get('users', UserComponent::class)->name('admin.users.index');
 
+Route::get('users', UserComponent::class)->name('admin.users.index');

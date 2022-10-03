@@ -30,9 +30,9 @@
                         Marcas
                     </x-jet-nav-link>
 
-                    {{-- <x-jet-nav-link href="{{ route('admin.departments.index') }}" :active="request()->routeIs('admin.departments.index')">
+                    <x-jet-nav-link href="{{ route('admin.departments.index') }}" :active="request()->routeIs('admin.departments.index')">
                         Departamentos
-                    </x-jet-nav-link> --}}
+                    </x-jet-nav-link>
 
 
                 </div>
@@ -182,9 +182,9 @@
                 Marcas
             </x-jet-nav-link>
 
-            {{-- <x-jet-nav-link href="{{ route('admin.departments.index') }}" :active="request()->routeIs('admin.departments.index')">
+            <x-jet-nav-link href="{{ route('admin.departments.index') }}" :active="request()->routeIs('admin.departments.index')">
                 Departamentos
-            </x-jet-nav-link> --}}
+            </x-jet-nav-link>
 
 
 
