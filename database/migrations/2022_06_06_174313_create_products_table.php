@@ -29,6 +29,7 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->integer('quantity')->nullable();
+            //->onDelete('cascade')
 
             $table->enum('status', [products::BORRADOR, products::PUBLICADO])->default(products::BORRADOR);
 

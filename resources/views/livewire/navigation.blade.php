@@ -21,7 +21,7 @@
             @auth
 
 
-                <x-jet-dropdown align="right" width="50">
+                <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
 
                         <button
@@ -34,7 +34,7 @@
 
                     <x-slot name="content">
                         <!-- Account Management -->
-                        <div class="block px-4 py-2 text-xs text-gray-400">
+                        <div class="block px-6 py-4 text-xs text-gray-400">
                             {{ __('Manage Account') }}
                         </div>
 
@@ -46,9 +46,11 @@
                             Mis ordenes
                         </x-jet-dropdown-link>
 
-                        <x-jet-dropdown-link href="{{ route('admin.index') }}">
-                            Administrador
-                        </x-jet-dropdown-link>
+                        @role('admin')
+                            <x-jet-dropdown-link href="{{ route('admin.index') }}">
+                                Administrador
+                            </x-jet-dropdown-link>
+                        @endrole
 
 
 
@@ -98,41 +100,41 @@
 
 
 
-<div class="bg-blue-500 h-8 w-full text-center">
+    <div class="bg-blue-500 h-8 w-full text-center">
 
 
 
-    <nav class="container" style="z-index: 900">
+        <nav class="container" style="z-index: 900">
 
-        <div x-on:click.away="close()" class="">
+            <div x-on:click.away="close()" class="">
 
-            <ul class="flex  text-sm font-medium md:flex-row md:space-x-8 md:mt-0">
-                @foreach ($categories as $category)
-                    <li class="navigation-link w-full mt-2">
-                        <a href="{{ route('categories.show', $category) }}"
-                            class="   font-medium text-white  md:w-auto ">
+                <ul class="flex  text-sm font-medium md:flex-row md:space-x-8 md:mt-0">
+                    @foreach ($categories as $category)
+                        <li class="navigation-link w-full mt-2">
+                            <a href="{{ route('categories.show', $category) }}"
+                                class="   font-medium text-white  md:w-auto ">
 
-                            {{ $category->name }}
+                                {{ $category->name }}
 
-                        </a>
+                            </a>
 
-                        <div class="navigation-submenu bg-gray-100 border-t-4 border-emerald-300 w-3/4 h-full  hidden">
+                            <div
+                                class="navigation-submenu bg-gray-100 border-t-4 border-emerald-300 w-3/4 h-full  hidden">
 
-                            <x-navigation-subcategories :category="$category" />
-                        </div>
-
-
-
-                    </li>
-                @endforeach
-            </ul>
+                                <x-navigation-subcategories :category="$category" />
+                            </div>
 
 
-        </div>
 
-    </nav>
-</div>
+                        </li>
+                    @endforeach
+                </ul>
+
+
+            </div>
+
+        </nav>
+    </div>
 
 
 </header>
-
